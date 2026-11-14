@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuestra historia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>">
+</head>
+<body>
+  <!-- Corazones flotando de fondo (los crea script.js) -->
+  <div class="corazones" id="corazones" aria-hidden="true"></div>
+
+  <main class="escena">
+    <!-- El libro: las hojas se generan desde script.js -->
+    <div class="libro" id="libro">
+      <div class="tapa-interior">Feliz cumple aniii</div>
+    </div>
+
+    <nav class="controles">
+      <button id="anterior" aria-label="Hoja anterior">‹</button>
+      <span id="contador">Portada</span>
+      <button id="siguiente" aria-label="Hoja siguiente">›</button>
+    </nav>
+
+    <div class="acciones">
+      <button id="agregar">+ Añadir hoja</button>
+      <button id="borrar" class="secundario">Borrar todo</button>
+    </div>
+  </main>
+
+  <!-- Reproductor de música (lo controla musica.js) -->
+  <aside class="reproductor" id="reproductor" aria-label="Música de fondo">
+    <div class="disco" id="disco" role="button" tabindex="0" aria-label="Disco de música">
+      <div class="disco-etiqueta"></div>
+    </div>
+    <div class="rep-info">
+      <p class="rep-titulo" id="repTitulo"></p>
+      <p class="rep-artista" id="repArtista"></p>
+      <div class="rep-barra">
+        <span id="repActual">0:00</span>
+        <input type="range" id="repProgreso" min="0" max="100" step="0.1" value="0" aria-label="Progreso de la canción">
+        <span id="repTotal">0:00</span>
+      </div>
+      <div class="rep-botones">
+        <button id="repAnterior" aria-label="Canción anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+        <button id="repAtras" class="rep-texto" aria-label="Retroceder 10 segundos">-10</button>
+        <button id="repPlay" class="rep-play" aria-label="Reproducir"></button>
+        <button id="repAdelante" class="rep-texto" aria-label="Adelantar 10 segundos">+10</button>
+        <button id="repSiguiente" aria-label="Canción siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+      </div>
+    </div>
+    <button id="repMin" class="rep-min" aria-label="Minimizar reproductor">–</button>
+  </aside>
+  <audio id="audio" preload="metadata"></audio>
+
+  <!-- Selector de archivos oculto, se usa para todas las fotos -->
+  <input type="file" id="selectorFoto" accept="image/*" hidden>
+
+  <script src="carta.js"></script>
+  <script src="script.js"></script>
+  <script src="musica.js"></script>
+</body>
+</html>
